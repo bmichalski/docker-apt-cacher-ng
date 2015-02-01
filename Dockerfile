@@ -15,6 +15,6 @@ WORKDIR /root
 EXPOSE 3142:3142
 
 CMD \
-  bash /root/fix-permissions.sh &&\
-  service apt-cacher-ng start &&\
+  bash /root/fix-permissions.sh && \
+  service apt-cacher-ng start && \
   tail -f /var/log/apt-cacher-ng/*
