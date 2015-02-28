@@ -7,7 +7,7 @@ APT_CACHER_NG_DATA_EXISTS=`docker inspect --format="{{ .Id }}" apt-cacher-ng-dat
 
 if [ -z "$APT_CACHER_NG_DATA_EXISTS" ]
 then
-  docker run -d -v /var/cache/apt-cacher-ng -v /var/log/apt-cacher-ng --name apt-cacher-ng-data debian
+  docker run -d -v /var/cache/apt-cacher-ng -v /var/log/apt-cacher-ng --name apt-cacher-ng-data ubuntu:14.04
 fi
 
 if ! [ -z "$APT_CACHER_NG_EXISTS" ]
