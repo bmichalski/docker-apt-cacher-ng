@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+  apt_cacher_ng_test_client:
+    build:
+      context: .
+      network: host

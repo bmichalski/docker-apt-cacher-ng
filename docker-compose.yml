@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  apt_cacher_ng:
+    build: ./
+    container_name: apt_cacher_ng
+    ports:
+      - '3142:3142'
+    volumes:
+      - /var/cache/apt-cacher-ng
+      - /var/log/apt-cacher-ng

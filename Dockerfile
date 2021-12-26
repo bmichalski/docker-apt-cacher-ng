@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:20.04
 
 RUN \
   apt-get update && \
@@ -6,15 +6,13 @@ RUN \
     apt-cacher-ng
 
 COPY conf/etc/apt-cacher-ng/acng.conf /etc/apt-cacher-ng/acng.conf
-COPY conf/root/fix-permissions.sh /root/fix-permissions.sh
+COPY conf/set-permissions.sh /set-permissions.sh
+COPY conf/entrypoint.sh /entrypoint.sh
+RUN chmod u+x /set-permissions.sh
+RUN chmod u+x /entrypoint.sh
 
-ENV HOME /root
+EXPOSE 3142
 
-WORKDIR /root
+ENTRYPOINT [ "/entrypoint.sh" ]
 
-EXPOSE 3142:3142
-
-CMD \
-  bash /root/fix-permissions.sh && \
-  service apt-cacher-ng start && \
-  tail -f /var/log/apt-cacher-ng/*
+CMD sleep infinity
