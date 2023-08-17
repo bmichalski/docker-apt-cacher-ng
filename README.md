@@ -43,8 +43,8 @@ In project root directory:
 docker compose stop
 ```
 
-## Remove stopped service containers
+## Remove stopped service containers along with associated volumes
 In project root directory:
 ```bash
-docker compose rm
+docker compose rm --volumes
 ```
