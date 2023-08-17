@@ -14,4 +14,9 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # Echo an error message before exiting
 trap '>&2 echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
-chown -R apt-cacher-ng:apt-cacher-ng /var/log/apt-cacher-ng /var/cache/apt-cacher-ng
+chown \
+  --preserve-root \
+  --recursive \
+  apt-cacher-ng:apt-cacher-ng \
+  /var/log/apt-cacher-ng \
+  /var/cache/apt-cacher-ng
