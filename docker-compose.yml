@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   apt_cacher_ng:
-    build: ./
+    build:          ./
     container_name: apt_cacher_ng
     ports:
       - '3142:3142'
