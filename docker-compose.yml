@@ -2,7 +2,7 @@ version: '3.9'
 services:
   apt_cacher_ng:
     build:
-      context: ./
+      context: .
       args:
         APT_CACHER_NG_BIND_ADDRESS: '0.0.0.0'
         APT_CACHER_NG_PORT:         '3142'
