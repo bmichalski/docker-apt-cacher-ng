@@ -1,8 +1,16 @@
 version: '3.9'
 services:
   apt_cacher_ng:
-    build:          ./
+    build:
+      context: ./
+      args:
+        APT_CACHER_NG_BIND_ADDRESS: '0.0.0.0'
+        APT_CACHER_NG_PORT:         '3142'
     container_name: apt_cacher_ng
+    entrypoint:     /entrypoint.sh
+    command:
+      - sleep
+      - infinity
     ports:
       - '3142:3142'
     volumes:
